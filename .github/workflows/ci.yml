@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npx prisma db generate && npm run build
+        run: npx prisma generate && npm run build
 
       - name: Run type & lint checks
         run: |

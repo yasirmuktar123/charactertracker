@@ -10,8 +10,9 @@
 
     <form method="POST" action="?/login" class="space-y-3">
       <div class="flex flex-col gap-1">
-        <label>Användarnamn</label>
+        <label for="username">Användarnamn</label>
         <input
+          id="username"
           type="text"
           name="username"
           required
@@ -21,8 +22,9 @@
       </div>
 
       <div class="flex flex-col gap-1">
-        <label>Lösenord</label>
+        <label for="password">Lösenord</label>
         <input
+          id="password"
           type="password"
           name="password"
           required
@@ -45,8 +47,9 @@
 
     <form method="POST" action="?/register" class="space-y-3">
       <div class="flex flex-col gap-1">
-        <label>Användarnamn</label>
+        <label for="register-username">Användarnamn</label>
         <input
+          id="register-username"
           type="text"
           name="username"
           required
@@ -57,8 +60,9 @@
       </div>
 
       <div class="flex flex-col gap-1">
-        <label>Email (valfritt)</label>
+        <label for="email">Email (valfritt)</label>
         <input
+          id="email"
           type="email"
           name="email"
           placeholder="din@mejl.se"
@@ -67,8 +71,9 @@
       </div>
 
       <div class="flex flex-col gap-1">
-        <label>Lösenord</label>
+        <label for="register-password">Lösenord</label>
         <input
+          id="register-password"
           type="password"
           name="password"
           required

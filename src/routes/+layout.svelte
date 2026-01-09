@@ -101,7 +101,6 @@
     transform: translateY(-1px);
   }
 
-  /* Login/Logout styling (matchar dina pills/links) */
   .user-pill {
     padding: 0.35rem 0.7rem;
     border-radius: 999px;

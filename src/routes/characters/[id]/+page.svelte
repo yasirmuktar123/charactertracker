@@ -91,6 +91,6 @@
           </li>
         {/each}
       </ul>
-    {/if}   <!--  -->
+    {/if}  
   </section>
 </section>

@@ -65,8 +65,8 @@
           id="email"
           type="email"
           name="email"
-          placeholder="din@mejl.se"
-          class="border rounded-md px-3 py-2"
+          placeholder="din@gmail.com"
+          class="border rounded-md px-3 py-2"     
         />
       </div>
 

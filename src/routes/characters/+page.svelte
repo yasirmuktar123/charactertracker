@@ -6,7 +6,6 @@
 <section class="max-w-4xl mx-auto p-6">
   <h1 class="text-2xl font-semibold mb-4">Characters</h1>
 
-  <!-- Create form -->
   <form method="post" class="mb-6 flex gap-2">
     <input
       name="name"
@@ -22,7 +21,6 @@
     </button>
   </form>
 
-  <!-- Cards grid -->
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     {#each characters as char}
       <article class="p-4 rounded-2xl shadow-md bg-white">

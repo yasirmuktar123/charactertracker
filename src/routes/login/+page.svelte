@@ -45,7 +45,7 @@
   <section class="bg-white rounded-xl shadow p-4 space-y-3">
     <h2 class="text-lg font-semibold">Registrera dig</h2>
 
-    <form method="POST" action="?/register" class="space-y-3">
+    <form method="POST" action="?/register" class="space-y-3" enctype="multipart/form-data">
       <div class="flex flex-col gap-1">
         <label for="register-username">Användarnamn</label>
         <input
@@ -79,6 +79,16 @@
           required
           minlength="4"
           placeholder="Välj ett lösenord"
+          class="border rounded-md px-3 py-2"
+        />
+      </div>
+      <div>
+        <label for="profile-image">Profilbild (valfritt)</label>
+        <input
+          id="profile-image"
+          type="file"
+          name="profileImage"
+          accept="image/*"
           class="border rounded-md px-3 py-2"
         />
       </div>

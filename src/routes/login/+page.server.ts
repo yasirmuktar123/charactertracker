@@ -9,6 +9,20 @@ export const actions: Actions = {
     const password = (data.get('password') as string)?.trim();
     const emailRaw = (data.get('email') as string)?.trim();
     const email = emailRaw && emailRaw.length > 0 ? emailRaw : null;
+    const profileImage = data.get('profileImage') as File;
+
+    if (profileImage && profileImage.size > 5 * 1024 * 1024) {
+      return fail(400, { error: 'Profilbilden får inte vara större än 5 MB.' });
+    }
+    if (profileImage && !profileImage.type.startsWith('image/')) {
+      return fail(400, { error: 'Profilbilden måste vara en bildfil.' });
+    }
+
+    if (profileImage && (profileImage.name.includes("..") || profileImage.name.includes("/"))) {
+      return fail(400, { error: 'Ogiltigt filnamn för profilbild.' });
+    }
+    
+
 
     if (!username || username.length < 3) {
       return fail(400, { error: 'Användarnamn måste vara minst 3 tecken.' });
@@ -26,8 +40,17 @@ export const actions: Actions = {
       return fail(400, { error: 'Användarnamnet är redan taget.' });
     }
 
+    //base 64 encode profile image if provided
+    let profileImageBase64: string | null = null;
+    if (profileImage) {
+      const arrayBuffer = await profileImage.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+      profileImageBase64 = `data:${profileImage.type};base64,${buffer.toString('base64')}`;
+    }
+
+
     const newUser = await prisma.user.create({
-      data: { username, password, email }
+      data: { username, password, email, profileImage: profileImageBase64 }
     });
 
     cookies.set('userId', newUser.id, {

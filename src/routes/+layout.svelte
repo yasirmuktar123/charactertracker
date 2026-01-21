@@ -15,7 +15,7 @@
 
         {#if data.user}
           <span class="user-pill">
-            Inloggad som <strong>{data.user.username}</strong>
+            Inloggad som <strong>{data.user.username} </strong>
           </span>
 
           <form method="POST" action="/login?/logout" class="logout-form">

@@ -1,7 +1,7 @@
 import { prisma } from '$lib/index';
 import { redirect } from '@sveltejs/kit';
 
-export async function requireAuth(cookies: any) {
+export async function requireAuth(cookies: any, includeProfileImage = false) {
   const userId = cookies.get('userId');
 
   if (!userId) {
@@ -10,7 +10,7 @@ export async function requireAuth(cookies: any) {
 
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: { id: true, username: true }
+    select: { id: true, username: true, profileImage: includeProfileImage }
   });
 
   if (!user) {
